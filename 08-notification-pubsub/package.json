@@ -1,0 +1,19 @@
+{
+    "name": "02-setup",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "api": "node src/api.js",
+        "subscriber": "node src/subscriber.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Mohd Furkan",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^5.2.1",
+        "ioredis": "^5.11.1"
+    }
+}

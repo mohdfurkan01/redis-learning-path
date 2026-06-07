@@ -1,0 +1,16 @@
+{
+    "name": "02-setup",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+        "dev": "node src/index.js"
+    },
+    "keywords": [],
+    "author": "Mohd Furkan",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^5.2.1",
+        "ioredis": "^5.11.1"
+    }
+}

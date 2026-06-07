@@ -1,0 +1,36 @@
+services:
+
+  redis:        # first service 
+    image: redis:7-alpine       # redis:latest version issue maybe
+    container_name: redis-container
+    ports:
+      - "6379:6379"    
+    # ports we get in array formate by default 6379 or you can change
+    # if we don't open the ports they can't communicate, my local machine port coonect to redis by default port
+    command: ["redis-server", "--appendonly", "yes"]     # written in array format
+    # we need volumes bcoz container does not store data permanentaly 
+    volumes:
+      - redis-data:/data
+
+
+  mongo:
+    image: mongo:7
+    container_name: mongo-container 
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: my_redis_mongodb
+    volumes:
+      - mongo-data:/data/db
+
+# whenever we start application data always be present there 
+volumes:
+  redis-data:
+  mongo-data:
+
+# now terminal and hit this command 'docker compose up'
+
+# precautions: follow the exact indentation and spacing in yaml file, otherwise it will give error, and also make sure to have docker desktop installed in our system and running.
+
+# for emaple     - "6379:6379" not -"6379:6379" (spacing issue) 
+# and - mongo-data:/data/db not -mongo-data:/data/db (spacing issue) and also make sure to have the same name of the volumes in both places.
