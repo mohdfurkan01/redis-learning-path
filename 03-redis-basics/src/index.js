@@ -9,6 +9,8 @@ app.use(express.json());
 
 const redis = new Redis(process.env.REDIS_URL || "fallback url");
 
+// app:banner -> is the key, the value is the banner message that we want to display on the frontend
+// and we need it because we want to be able to change the banner message without having to redeploy the frontend, so we can just update the value in Redis and the frontend will get the updated message when it fetches it from the backend
 const BANNER_KEY = "app:banner";
 
 app.post("/banner", async (req, res) => {
